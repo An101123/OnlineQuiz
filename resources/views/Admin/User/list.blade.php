@@ -3,7 +3,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header align-center">
-            <h2>TEST MANAGAMENT</h2>
+            <h2>USER MANAGAMENT</h2>
         </div>
         <!-- Basic Table -->
         <div class="row clearfix">
@@ -15,31 +15,28 @@
                     </div>
                     @endif
                     <div class="header">
-                        <a href="{{route('test.create')}}"
-                           class="btn btn-success waves-effect">Create test</a>
+                        <a href="{{route('user.create')}}"
+                           class="btn btn-success waves-effect">Create User</a>
                     </div>
+
                     <div class="body table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead class="btn-success">
                                 <tr>
-                                    <th style="width: 10%">Quiz name</th>
-                                    <th style="width: 10%">Total times</th>
-                                    <th style="width: 15%">Total Questions</th>
-                                    <th style="width: 20%">Description</th>
-                                    <th style="width: 9%">Quiz type</th>
-                                    <th style="width: 27%"></th>
+                                    <th style="width: 15%">Name</th>
+                                    <th style="width: 25%">Email</th>
+                                    <th style="width: 15%">Password</th>
+                                    <th style="width: 25%"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($test as $test)
+                                @foreach($users as $user)
                                 <tr>
-                                    <td><a href="{{route('test.show', [$test->id])}}">{{$test->test_name}}</a></td>
-                                    <td>{{$test->test_time}}</td>
-                                    <td>{{$test->question_number}}</td>
-                                    <td>{{$test->description}}</td>
-                                    <td>{{$test->name }}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->password}}</td>
                                     <td>
-                                        <form action="{{URL::route('test.destroy' ,$test->id)}}"
+                                        <form action="{{URL::route('user.destroy' ,$user->id)}}"
                                               method="POST">
                                             <input type="hidden"
                                                    name="_method"
@@ -51,10 +48,8 @@
                                                     onclick="return confirm('Are you sure?')"><i
                                                    class="material-icons">delete</button>
                                         </form>
-                                        <a href="{{route('test.edit', [$test->id])}}"
-                                           class="btn btn-info"><i class="material-icons font-16">edit</i></a>
-                                        <a href="{{route('test.show', [$test->id])}}"
-                                           class="btn btn-success">storage</a>
+                                        <a href="{{route('user.edit', [$user->id])}}"
+                                           class="btn btn-info"><i class="material-icons">edit</i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -78,4 +73,5 @@
         <!-- #END# Basic Table -->
     </div>
 </section>
+
 @endsection

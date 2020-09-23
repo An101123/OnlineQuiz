@@ -6,20 +6,21 @@
     <div class="block-header align-center">
         <h2>EDIT TEST</h2>
     </div>
-
     <!-- Horizontal Layout -->
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="body">
                     <form class="form-horizontal"
-                          action="{{route('test.update', [$test->test.id])}}"
+                          action="{{route('test.update', [$test->test_id])}}"
                           method="POST"
                           enctype="multipart/form-data">
+                        @method('PUT')
 
                         <input type="hidden"
                                name="_token"
                                value="{{csrf_token()}}" />
+
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                 <label for="test_name">Test name:</label>
@@ -124,10 +125,11 @@
                                     <div class="form-line">
                                         <select class="form-control"
                                                 name="test_type_id"
-                                                id="exampleFormControlSelect1"
-                                                value="{{$test->type_id}}">
-                                            @foreach($type as $type)
-                                            <option value="{{$type->id}}">{{$type->name}}</option>
+                                                id="exampleFormControlSelect1">
+                                            @foreach($type as $type1)
+                                            <option value="{{$type1->id}}"
+                                                    <?php foreach($typeSelect as $item) { if($item->test_type_id == $type1->id ) echo ' selected="selected"';} ?>>
+                                                {{$type1->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -151,6 +153,7 @@
                                 </div>
                             </div>
                         </div>
+                        \
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                 <label for="password">Questions:</label>
@@ -162,13 +165,14 @@
                                             class="form-control"
                                             id="exampleFormControlSelect2">
                                         @foreach($question as $qt)
-                                        <option value="{{$qt->id}}">{{$qt->id}}</option>
+                                        <option value="{{$qt->id}}"
+                                                <?php foreach($questionSelect as $item) { if($item->id == $qt->id ) echo ' selected="selected"';}  ?>>
+                                            {{$qt->id}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                         </div>
-
                         <div class="row clearfix">
                             <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                 <button type="submit"
@@ -178,10 +182,13 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- #END# Horizontal Layout -->
 
 </section>

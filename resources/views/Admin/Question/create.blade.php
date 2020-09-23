@@ -98,7 +98,7 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                <label for="password">Questions:</label>
+                                <label for="password">Tests:</label>
                             </div>
                             <div class="col-lg-10 col-md-3 col-sm-2 col-xs-1">
                                 <div class="form-group">

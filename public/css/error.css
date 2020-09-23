@@ -1,0 +1,25 @@
+.error {
+
+    /* border: 1px solid red; */
+    /* min-height: 20px; */
+    color: red;
+}
+
+.test {
+    width: 100%;
+    float: right;
+}
+
+.input-group {
+    width: 100%;
+
+}
+
+#name-error,
+#email-error,
+#phoneNumber-error,
+#address-error,
+#password-error,
+#password_confirmation-error {
+    width: 100%;
+}

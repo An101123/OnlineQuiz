@@ -23,17 +23,19 @@
                         <table class="table table-bordered table-striped">
                             <thead class="btn-success">
                                 <tr>
+                                    <th style="width: 15%">Question ID</th>
                                     <th style="width: 25%">Question content</th>
                                     <th style="width: 15%">Correct Answer</th>
-                                    <th style="width: 15%">Answer 1</th>
-                                    <th style="width: 15%">Answer 2</th>
-                                    <th style="width: 15%">Answer 3</th>
-                                    <th style="width: 15%"></th>
+                                    <th style="width: 10%">Answer 1</th>
+                                    <th style="width: 10%">Answer 2</th>
+                                    <th style="width: 10%">Answer 3</th>
+                                    <th style="width: 25%"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($question as $question)
                                 <tr>
+                                    <td>{{$question->id}}</td>
                                     <td>{{$question->content}}</td>
                                     <td>{{$question->correct_answer}}</td>
                                     <td>{{$question->answer_1}}</td>
@@ -51,9 +53,6 @@
                                             <button class="btn btn-danger btn-delete"
                                                     onclick="return confirm('Are you sure?')"><i
                                                    class="material-icons">delete</button>
-                                            <!-- <a href="{{route('question.destroy' ,$question->id)}}"
-                                               class="btn btn-danger btn-delete"><i
-                                                   class="material-icons">delete</i></a> -->
                                         </form>
                                         <a href="{{route('question.edit', [$question->id])}}"
                                            class="btn btn-info"><i class="material-icons">edit</i></a>

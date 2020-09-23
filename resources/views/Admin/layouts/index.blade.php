@@ -80,6 +80,11 @@
     </div>
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
+    <ul>
+        <!-- /.dropdown -->
+
+        <!-- /.dropdown -->
+    </ul>
     <nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -160,6 +165,42 @@
                                 <a href="{{route('testtype.create')}}">Create test type</a>
                             </li>
                         </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0);"
+                           class="menu-toggle">
+                            <span>User</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="{{route('user.index')}}">User list</a>
+                            </li>
+                            <li>
+                                <a href="{{route('user.create')}}">Create User</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           href="#">
+                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-user">
+                            @if(Auth::user())
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>{{Auth::user()->name}}</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="{{url('logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                            @endif
+                        </ul>
+                        <!-- /.dropdown-user -->
                     </li>
                 </ul>
             </div>
