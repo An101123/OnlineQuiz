@@ -7,10 +7,10 @@
           name="viewport">
     <title>Online quiz</title>
     <!-- Favicon-->
-    <link rel="icon"
-          href="favicon.ico"
-          type="image/x-icon">
 
+    <link rel="shortcut icon"
+          type="images-icon"
+          href="{{url('images/logo.png')}}" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext"
           rel="stylesheet"

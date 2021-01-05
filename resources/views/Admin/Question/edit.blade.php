@@ -124,7 +124,7 @@
                             <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
                                 <button type="submit"
                                         class="btn btn-success m-t-15 w-90 waves-effect">Save</button>
-                                <button type="button"
+                                <button type="cancel"
                                         class="btn btn-warning m-t-15 w-90 waves-effect">Cancel</button>
                             </div>
                         </div>

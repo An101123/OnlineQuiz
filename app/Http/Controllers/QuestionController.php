@@ -127,8 +127,11 @@ class QuestionController extends Controller
     {
         //
         DB::table('test_question')->where('test_question.question_id', '=', $id)->delete();
-        DB::table('question')->where('question.id','=',$id)->delete();
-        $question= new Question;
+        // DB::table('question')->where('question.id','=',$id)->delete();
+
+        // $question= new Question;
+        // $question = Question::find($id);
+        DB::table('question')->where('question.id', '=', $id)->get();
         $question->content = $request->content;
         $question->answer_1 = $request->answer_1;
         $question->answer_2 = $request->answer_2;
@@ -139,7 +142,7 @@ class QuestionController extends Controller
         $result = $question;
         $last_id_insert = $result->id;
 
-    foreach(($request->list_test) as $value) {
+        foreach(($request->list_test) as $value) {
         $quest_test = new Question_Test;
         $quest_test->question_id = $last_id_insert;
         $quest_test->test_id  = $value;//(1,2,3,4)

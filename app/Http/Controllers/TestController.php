@@ -146,8 +146,10 @@ class TestController extends Controller
         //
         DB::table('test_question')
         ->where('test_question.test_id', '=', $id)->delete();
-        DB::table('test') ->where('test.id', '=', $id)->delete();
-        $test = new Test;
+        // DB::table('test') ->where('test.id', '=', $id)->delete();
+        // $test = new Test;
+        // $test = Test::find($id);
+        DB::table('test')->where('test.id', '=', $id)->get();
         $test->test_name = $request->test_name;
         $test->test_time = $request->test_time;
         $test->active = $request->active;

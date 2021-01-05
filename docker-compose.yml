@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  webserver:
+    build: ./
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+      # - ./run/var:/va r/lib/mysql
+      # - ./run/dump/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      XDEBUG_CONFIG: remote_host=host.docker.internal
+  db:
+    image: mysql
+    ports:
+      - "3306:80"
+    environment:
+      MYSQL_DATABASE: online_quiz
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123123
+      MYSQL_ROOT_PASSWORD: 123123
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8000:80
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123123
+      MYSQL_ROOT_PASSWORD: 123123
+volumes:
+  persistent:
